@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <omp.h>
 
 #define FNAME_IN "in.pgm"
 #define FNAME_OUT "out.pgm"
@@ -40,8 +41,9 @@ int main (int argc, char** argv) {
   for (int t=0; t<b; t++) {
     double (*temp)[sx];
     temp = pxin; pxin = pxout; pxout = temp;
-    for (int x=0; x<sx; x++) {
-       for (int y=0; y<sy; y++) {
+    #pragma omp parallel for num_threads(2)
+    for (int y=0; y<sy; y++) {
+      for (int x=0; x<sx; x++) {
         int y1 = (y-1)<0?0:y-1;
         int y2 = (y+1)>=sy?sy-1:y+1;
         int x1 = (x-1)<0?0:x-1;

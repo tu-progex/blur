@@ -40,22 +40,22 @@ int main (int argc, char** argv) {
   for (int t=0; t<b; t++) {
     double (*temp)[sx];
     temp = pxin; pxin = pxout; pxout = temp;
-    for (int x=0; x<sx; x++) {
-       for (int y=0; y<sy; y++) {
+    for (int y=0; y<sy; y++) {
+      for (int x=0; x<sx; x++) {
         int y1 = (y-1)<0?0:y-1;
         int y2 = (y+1)>=sy?sy-1:y+1;
         int x1 = (x-1)<0?0:x-1;
         int x2 = (x+1)>=sx?sx-1:x+1;
         pxout[y][x] = 
-          pxin[y1][x1]  *(1/16.0)
-        + pxin[y1][x]   *(1/8.0)
-        + pxin[y1][x2]  *(1/16.0)
-        + pxin[y][x1]   *(1/8.0)
-        + pxin[y][x]    *(1/4.0)
-        + pxin[y][x2]   *(1/8.0)
-        + pxin[y2][x1]  *(1/16.0)
-        + pxin[y2][x]   *(1/8.0)
-        + pxin[y2][x2]  *(1/16.0);
+          pxin[y1][x1]  /16.0
+        + pxin[y1][x]   /8.0
+        + pxin[y1][x2]  /16.0
+        + pxin[y][x1]   /8.0
+        + pxin[y][x]    /4.0
+        + pxin[y][x2]   /8.0
+        + pxin[y2][x1]  /16.0
+        + pxin[y2][x]   /8.0
+        + pxin[y2][x2]  /16.0;
       }
     }
   }
