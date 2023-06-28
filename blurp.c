@@ -6,7 +6,7 @@
 
 #define FNAME_IN "in.pgm"
 #define FNAME_OUT "out.pgm"
-#define PGM_MAX 65535        // Max value of output pgm file 
+#define PGM_MAX 255        // Max value of output pgm file 
 
 double *read_pgm_file (const char*, int*, int*);
 void write_pgm_file (const char*, const double*, int, int);
