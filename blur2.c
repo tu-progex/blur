@@ -47,15 +47,15 @@ int main (int argc, char** argv) {
         int x1 = (x-1)<0?0:x-1;
         int x2 = (x+1)>=sx?sx-1:x+1;
         pxout[y][x] = 
-          pxin[y1][x1]  /16.0
-        + pxin[y1][x]   /8.0
-        + pxin[y1][x2]  /16.0
-        + pxin[y][x1]   /8.0
-        + pxin[y][x]    /4.0
-        + pxin[y][x2]   /8.0
-        + pxin[y2][x1]  /16.0
-        + pxin[y2][x]   /8.0
-        + pxin[y2][x2]  /16.0;
+          pxin[y1][x1]  *(1/16.0)
+        + pxin[y1][x]   *(1/8.0)
+        + pxin[y1][x2]  *(1/16.0)
+        + pxin[y][x1]   *(1/8.0)
+        + pxin[y][x]    *(1/4.0)
+        + pxin[y][x2]   *(1/8.0)
+        + pxin[y2][x1]  *(1/16.0)
+        + pxin[y2][x]   *(1/8.0)
+        + pxin[y2][x2]  *(1/16.0);
       }
     }
   }
